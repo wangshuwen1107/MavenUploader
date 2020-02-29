@@ -2,7 +2,21 @@
 
 buildscript {
     repositories {
-        maven { url './repo/' }
+        //maven { url './repo/' }
+        maven {
+            credentials {
+                username 'IVhHoH'
+                password 'RCVBWn38pj'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/121001-release-bwPsFH/'
+        }
+        maven {
+            credentials {
+                username 'IVhHoH'
+                password 'RCVBWn38pj'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/121001-snapshot-QCKo28/'
+        }
         google()
         jcenter()
     }

@@ -18,10 +18,10 @@ uploadArchives {
             pom.artifactId = 'maven_uploader'
             pom.version = '1.0.0'
             //发布到本地repo 测试时候用
-            repository(url: uri('../repo'))
-//            repository(url: 'https://repo.souche-inc.com/repository/releases/') {
-//                authentication(userName: 'sdev', password: '7J48qUFA6m2E8uJx')
-//            }
+            //repository(url: uri('../repo'))
+            repository(url: 'https://repo.rdc.aliyun.com/repository/121001-release-bwPsFH/') {
+                authentication(userName: 'IVhHoH', password: 'RCVBWn38pj')
+            }
         }
     }
 }
