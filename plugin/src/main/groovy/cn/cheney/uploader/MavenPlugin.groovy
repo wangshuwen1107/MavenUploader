@@ -30,8 +30,10 @@ class MavenPlugin implements Plugin<Project> {
             if (!mavenExtension.validate()) {
                 return
             }
-            if (!project.plugins.hasPlugin('com.android.library')) {
-                Logger.e("Not com.android.library ~~")
+            if (!(project.plugins.hasPlugin('com.android.library')
+                    || project.plugins.hasPlugin('java')
+                    || project.plugins.hasPlugin('java-library'))) {
+                Logger.e("Not android  or  java library ~~")
                 return
             }
             project.uploadArchives {
@@ -59,15 +61,24 @@ class MavenPlugin implements Plugin<Project> {
                     }
                 }
             }
-            project.android.libraryVariants.all { LibraryVariant variant ->
-                Logger.d("LibraryVariant NAME =" + variant.name)
-                if (variant.name == "release") {
-                    project.artifacts {
-                        archives androidSourcesJarTask(project, mavenExtension.artifactId, variant)
-                        archives androidJavadocsJarTask(project, mavenExtension.artifactId, variant)
+            if (project.plugins.hasPlugin('com.android.library')) {
+                project.android.libraryVariants.all { LibraryVariant variant ->
+                    Logger.d("LibraryVariant NAME =" + variant.name)
+                    if (variant.name == "release") {
+                        project.artifacts {
+                            archives androidSourcesJarTask(project, mavenExtension.artifactId, variant)
+                            archives androidJavadocsJarTask(project, mavenExtension.artifactId, variant)
+                        }
                     }
                 }
+
+            } else {
+                project.artifacts {
+                    archives sourcesJarTask(project, mavenExtension.artifactId, project.compileJava.source)
+                    archives javadocsJarTask(project, mavenExtension.artifactId, project.javadoc)
+                }
             }
+
 
         }
     }

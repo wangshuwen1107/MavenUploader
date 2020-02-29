@@ -22,7 +22,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath 'cn.cheney.plugin:maven_uploader:1.0.0'
+        classpath 'cn.cheney.plugin:maven_uploader:1.0.1'
     }
 }
 

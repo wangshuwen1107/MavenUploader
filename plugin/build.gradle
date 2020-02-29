@@ -16,7 +16,7 @@ uploadArchives {
         mavenDeployer {
             pom.groupId = 'cn.cheney.plugin'
             pom.artifactId = 'maven_uploader'
-            pom.version = '1.0.0'
+            pom.version = '1.0.1'
             //发布到本地repo 测试时候用
             //repository(url: uri('../repo'))
             repository(url: 'https://repo.rdc.aliyun.com/repository/121001-release-bwPsFH/') {

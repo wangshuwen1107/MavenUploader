@@ -1,34 +1,35 @@
-apply plugin: 'com.android.library'
+//apply plugin: 'com.android.library'
+apply plugin: 'java-library'
 
-android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.2"
-
-
-    defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-}
+//android {
+//    compileSdkVersion 28
+//    buildToolsVersion "29.0.2"
+//
+//
+//    defaultConfig {
+//        minSdkVersion 19
+//        targetSdkVersion 28
+//        versionCode 1
+//        versionName "1.0"
+//
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        consumerProguardFiles 'consumer-rules.pro'
+//    }
+//
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//
+//}
 //apply from: 'maven.gradle'
 apply plugin: 'maven-uploader'
 
 pluginMaven {
     groupId "cn.cheney.plugin"
-    artifactId "test"
+    artifactId "test-jar"
     version '1.0.0-SNAPSHOT'
     snapshotRepository {
         url 'https://repo.rdc.aliyun.com/repository/121001-snapshot-QCKo28/'
@@ -44,10 +45,4 @@ pluginMaven {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
