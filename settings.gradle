@@ -1,0 +1,2 @@
+include ':app', ':plugin', ':test_lib'
+rootProject.name='MavenPlugin'

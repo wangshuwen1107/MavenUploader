@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.1.2'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'cn.cheney.plugin'
+            pom.artifactId = 'maven_uploader'
+            pom.version = '1.0.0'
+            //发布到本地repo 测试时候用
+            repository(url: uri('../repo'))
+//            repository(url: 'https://repo.souche-inc.com/repository/releases/') {
+//                authentication(userName: 'sdev', password: '7J48qUFA6m2E8uJx')
+//            }
+        }
+    }
+}
