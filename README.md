@@ -30,7 +30,7 @@ buildscript {
 
 ```groovy
 apply plugin: 'com.android.library'
-apply plugin: 'maven-cn.cheney.uploader'
+apply plugin: 'maven-uploader'
 
 pluginMaven {
     groupId = "xxx"
